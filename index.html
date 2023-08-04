@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Personel Bilgi Formu</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+    
+</style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Kişiye Özel Tişört Sipariş Aracı</h1>
+            <hr class="line"></hr>
+            <form id="personelForm">
+
+                <div class="personalinfo">
+
+                    <h2>Kişisel Bilgiler</h2>
+                      
+                    <div class="form-group">
+                        <label for="name">Adınız :</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">Soyadınız :</label>
+                        <input type="text" id="surname" name="surname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthdate">Doğum Tarihiniz :</label>
+                        <input type="date" id="birthdate" name="birthdate"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mail">Mail Adresiniz :</label>
+                        <input type="email" id="mail" name="mail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefon :</label>
+                        <input type="text" placeholder="5XX-XXX-XXXX"
+                            maxlength="12"
+                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="phone"
+                            name="phone" required>
+                    </div>
+                    <hr class="line"></hr>
+                </div>
+
+                <div class="orderinfo">
+
+                    <h2>Sipariş Bilgileri</h2>
+
+                    <div class="form-group">
+                        <label for="tshirtColor">Tişört Rengi :</label>
+                        <input type="color" id="tshirtColor" name="tshirtColor"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fontColor">Yazı Rengi :</label>
+                        <input type="color" id="fontColor" name="fontColor"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tshirtText">Tişört üzerinde yazacak yazıyı
+                            girin :</label>
+                        <input type="text" id="tshirtText" name="tshirtText"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tshirtNumber">Tişört Adeti :</label>
+                        <input type="text" id="tshirtNumber" name="tshirtNumber"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="size">Beden Seçiniz :</label>
+                        <input type="range"
+                            id="size"
+                            name="size" min="1" max="5" required list="sizes">
+
+                        <datalist id="sizes">
+                            <option value="1">XS</option>
+                            <option value="2">S</option>
+                            <option value="3">M</option>
+                            <option value="4">L</option>
+                            <option value="5">XL</option>
+                        </datalist>
+                    </div>
+                    <div class="form-group">
+                        <button id="secButton">Seç</button>
+                        <input type="text" id="goster" readonly disabled>
+                    </div>
+                </div>
+                <hr class="line"></hr>
+                <div class="deliveryinfo">
+
+                    <h2>Teslimat Bilgileri</h2>
+
+                    <div class="form-group">
+                        <label for="adress">Adres :</label>
+                        <textarea type id="adress" name="adress" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="deliverytime">Teslim tarihi için bir
+                            aralık seçiniz :</label>
+                        <input type="week" id="deliverytime"
+                            name="deliverytime" required>
+                    </div>
+
+                </div>
+                <hr class="line"></hr>
+                <div class="paymentinfo">
+
+                    <h2>Ödeme Bilgileri</h2>
+
+                    <div class="form-group">
+                        <label for="namesurname">Ad Soyad :</label>
+                        <input type="text" id="namesurname" name="namesurname"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardNumber">Kart Numarası :</label>
+                        <input type="text"
+                            pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}"
+                            placeholder="XXXX-XXXX-XXXX-XXXX"
+                            id="cardNumber"
+                            name="cardNumber" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expirationdate">Son Kullanma Tarihi :</label>
+                        <input type="month" id="expirationdate"
+                            name="expirationdate"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV :</label>
+                        <input type="text" id="cvv" name="cvv"
+                            required>
+                    </div>
+                </div>
+
+                <button type="submit">Onayla</button>
+            </form>
+            <div id="sonucTablosu">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="3" rowspan="9">SİPARİŞ ONAY</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th rowspan="5">Kişisel Bilgiler</th>
+                            <td>Ad :</td>
+                            <td id="tname"></td>
+        
+                            <tr>
+                                <td>Soyad:</td>
+                                <td id="tsurname"></td>
+                            </tr>
+                            <tr>
+                                <td>Doğum Tarihi:</td>
+                                <td id="tbirthdate"></td>
+                            </tr>
+                            <tr>
+                                <td>Mail Adresi:</td>
+                                <td id="tmail"></td>
+                            </tr>
+                            <tr>
+                                <td>Telefon:</td>
+                                <td id="tphone"></td>
+                            </tr>
+        
+                        </tr>
+        
+                        <tr>
+                            <th rowspan="5">Sipariş Bilgileri</th>
+                            <td>Tişört Rengi :</td>
+                            <td id="ttshirtColor"></td>
+        
+                            <tr>
+                                <td>Yazı Rengi:</td>
+                                <td id="tfontColor"></td>
+                            </tr>
+        
+                            <tr>
+                                <td>Yazı:</td>
+                                <td id="ttshirtText"></td>
+                            </tr>
+                            <tr>
+                                <td>Tişört Adedi</td>
+                                <td id="ttshirtNumber"></td>
+                            </tr>
+                            <tr>
+                                <td>Tişört Bedeni:</td>
+                                <td id="tsize"></td>
+                            </tr>
+                        </tr>
+        
+                        <tr>
+                            <th rowspan="2">Teslimat Bilgileri</th>
+                            <td>Adres:</td>
+                            <td id="tadress"></td>
+        
+                            <tr>
+                                <td>Teslimat Tarihi</td>
+                                <td id="tdeliverytime"></td>
+                            </tr>
+        
+                        </tr>
+        
+                        <tr>
+                            <th rowspan="4">Ödeme Bilgileri</th>
+                            <td>Ad Soyad:</td>
+                            <td id="tnamesurname"></td>
+        
+                            <tr>
+                                <td>Kart Numarası</td>
+                                <td id="tcardNumber"></td>
+                            </tr>
+        
+                            <tr>
+                                <td>Son Kullanma Tarihi:</td>
+                                <td id="texpirationdate"></td>
+                            </tr>
+                            <tr>
+                                <td>CVV</td>
+                                <td id="tcvv"></td>
+                            </tr>
+        
+                        </tr>
+                    </tbody>
+                </table>
+        
+                <button>
+                    Tamamla
+                </button>
+            </div>
+        </div>
+       
+        <script src="index.js">
+    </script>
+    </body>
+
+</html>
